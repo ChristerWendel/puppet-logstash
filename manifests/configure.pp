@@ -24,4 +24,6 @@ class logstash::configure {
     ensure => 'present',
     groups => ['logstash', 'adm'],
   }
+
+  File <| tag == logstash |>
 }
