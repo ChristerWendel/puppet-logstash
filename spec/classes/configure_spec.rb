@@ -10,6 +10,13 @@ describe 'logstash', :type => :class do
         .with_group('logstash')
         .with_mode('0644')
         .with_content(/input {/)
+    }
+
+    it { should contain_file('/etc/logstash/conf.d/elasticsearch.conf')
+        .with_ensure('present')
+        .with_owner('logstash')
+        .with_group('logstash')
+        .with_mode('0644')
         .with_content(/output {/)
         .with_content(/host => 'localhost'/)
     }
@@ -23,7 +30,7 @@ describe 'logstash', :type => :class do
   context 'elasticsearch_host => remote' do
     let (:params) { { :elasticsearch_host => 'remote' } }
 
-    it { should contain_file('/etc/logstash/conf.d/syslog.conf')
+    it { should contain_file('/etc/logstash/conf.d/elasticsearch.conf')
         .with_content(/host => 'remote'/)
     }
   end
