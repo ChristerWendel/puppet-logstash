@@ -18,20 +18,11 @@ describe 'logstash', :type => :class do
         .with_group('logstash')
         .with_mode('0644')
         .with_content(/output {/)
-        .with_content(/host => 'localhost'/)
     }
 
     it { should contain_user('logstash')
         .with_ensure('present')
         .with_groups(['logstash', 'adm'])
-    }
-  end
-
-  context 'elasticsearch_host => remote' do
-    let (:params) { { :elasticsearch_host => 'remote' } }
-
-    it { should contain_file('/etc/logstash/conf.d/elasticsearch.conf')
-        .with_content(/host => 'remote'/)
     }
   end
 end
