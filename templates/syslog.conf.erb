@@ -3,6 +3,11 @@ input {
     path => "/var/log/syslog"
     type => "syslog"
   }
+
+  file {
+    path => "/var/log/auth.log"
+    type => "syslog"
+  }
 }
 
 filter {
