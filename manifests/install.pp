@@ -6,7 +6,7 @@ class logstash::install {
 
   if $::architecture == 'amd64' or $::architecture == 'i386' {
     aptrepo::addrepo { 'logstash':
-      location => 'http://packages.elasticsearch.org/logstash/1.5/debian/',
+      location => 'http://packages.elasticsearch.org/logstash/2.1/debian/',
       key      => 'http://packages.elasticsearch.org/GPG-KEY-elasticsearch',
       } -> Package['logstash']
   }

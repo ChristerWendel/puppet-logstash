@@ -6,8 +6,8 @@
 # ["version"]
 #   The package version to install
 #
-# ["elasticsearch_host"]
-#   The host name of the server running Elasticsearch
+# ["elasticsearch_hosts"]
+#   The host names of the server running Elasticsearch
 #
 # ["enable"]
 #   Should the service be enabled during boot time?
@@ -17,7 +17,7 @@
 
 class logstash (
   $version = 'present',
-  $elasticsearch_host = 'localhost',
+  $elasticsearch_hosts = ['localhost'],
   $enable = true,
   $start = true
   )  {

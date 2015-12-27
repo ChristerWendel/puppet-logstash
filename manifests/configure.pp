@@ -2,7 +2,7 @@
 #
 # Configures logstash
 class logstash::configure {
-  $elasticsearch_host = $logstash::elasticsearch_host
+  $elasticsearch_hosts = $logstash::elasticsearch_hosts
 
   file { '/etc/logstash/conf.d/syslog.conf':
     ensure  => 'present',

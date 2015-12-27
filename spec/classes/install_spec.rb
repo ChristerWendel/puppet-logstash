@@ -5,7 +5,7 @@ describe 'logstash', :type => :class do
 
   context 'with default parameters' do
     it { should_not contain_aptrepo__addrepo('logstash')
-        .with_location('http://packages.elasticsearch.org/logstash/1.5/debian/')
+        .with_location('http://packages.elasticsearch.org/logstash/2.1/debian/')
         .with_key('http://packages.elasticsearch.org/GPG-KEY-elasticsearch')
     }
 
@@ -18,7 +18,7 @@ describe 'logstash', :type => :class do
     let(:facts) { {:architecture => 'amd64'} }
 
     it { should contain_aptrepo__addrepo('logstash')
-        .with_location('http://packages.elasticsearch.org/logstash/1.5/debian/')
+        .with_location('http://packages.elasticsearch.org/logstash/2.1/debian/')
         .with_key('http://packages.elasticsearch.org/GPG-KEY-elasticsearch')
     }
   end
@@ -27,7 +27,7 @@ describe 'logstash', :type => :class do
     let(:facts) { {:architecture => 'i386'} }
 
     it { should contain_aptrepo__addrepo('logstash')
-        .with_location('http://packages.elasticsearch.org/logstash/1.5/debian/')
+        .with_location('http://packages.elasticsearch.org/logstash/2.1/debian/')
         .with_key('http://packages.elasticsearch.org/GPG-KEY-elasticsearch')
     }
   end
@@ -36,7 +36,7 @@ describe 'logstash', :type => :class do
     let(:facts) { {:architecture => 'amdv7l'} }
 
     it { should_not contain_aptrepo__addrepo('logstash')
-        .with_location('http://packages.elasticsearch.org/logstash/1.5/debian/')
+        .with_location('http://packages.elasticsearch.org/logstash/2.1/debian/')
         .with_key('http://packages.elasticsearch.org/GPG-KEY-elasticsearch')
     }
   end

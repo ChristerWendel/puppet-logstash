@@ -1,4 +1,7 @@
 output {
   elasticsearch {
+    hosts => [<% elasticsearch_hosts.each do |host| -%>
+<% unless elasticsearch_hosts.index(host) == 0 %>, <% end -%>
+"<%= host %>:9200"<% end -%>]
   }
 }
